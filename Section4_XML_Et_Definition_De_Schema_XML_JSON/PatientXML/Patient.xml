@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tns:patient xmlns:tns="http://www.etienne.com/Patient"
+             xmlns:xsi="http://wwww.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.etienne.com/Patient Patient.xsd "
+            id="123">
+    <tns:id>1</tns:id>
+    <tns:name>etienne</tns:name>
+    <tns:age>58</tns:age>
+    <tns:dob>2001-01-01</tns:dob>
+    <tns:email>etixi@mail.com</tns:email>
+    <tns:gender>M</tns:gender>
+    <tns:phone>123456789</tns:phone>
+    <tns:payment>
+        <tns:insurance>
+            <tns:provider>1000</tns:provider>
+            <tns:provider>Blue Cross</tns:provider>
+        </tns:insurance>
+    </tns:payment>
+</tns:patient>

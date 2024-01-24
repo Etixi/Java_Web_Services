@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.etienne.com/Patient"
+        xmlns:tns="http://www.etienne.com/Patient" elementFormDefault="qualified">
+
+    <!--Using complexType-->
+    <element name="patient" type="tns:Patient"/>
+    <complexType name="Patient">
+        <sequence>
+            <element name="id" type="tns:ID" minOccurs="0" maxOccurs="2"/> <!--Contrôle le nombre d'éléments-->
+            <element name="name" type="tns:string15Charts"/>
+            <element name="age" type="int"/>
+            <element name="email" type="string" maxOccurs="unbounded"/>
+            <element name="dob" type="string"/>
+            <element name="gender" type="tns:Gender"/>
+            <element name="phone" type="string"/>
+            <element name="payment" type="tns:PaymentType"/>
+        </sequence>
+    </complexType>
+
+    <!--Définir les attributs-->
+    <attribute name="id" type="tns:ID"/>
+
+
+    <!-- Controller l'ordre des éléments -->
+    <complexType name="PaymentType">
+        <choice>
+            <element name="cash" type="int"/>
+            <element name="insurance" type="tns.Insurance"/>
+        </choice>
+    </complexType>
+
+    <complexType name="Insurance">
+        <all>
+            <element name="provider" type="string"/>
+            <element name="limit" type="int"/>
+        </all>
+    </complexType>
+
+    <!-- Creation de types simples -->
+    <simpleType name="ID">
+        <restriction base="int">
+            <pattern value="[0-9]*"></pattern>
+        </restriction>
+    </simpleType>
+
+     <simpleType name="string15Charts">
+        <restriction base="string">
+           <maxLength value="15"/>
+        </restriction>
+     </simpleType>
+
+     <simpleType name="Gender">
+        <restriction base="string" />
+            <enumeration value="F" />
+            <enumeration value="F" />
+     </simpleType>
+</schema>
